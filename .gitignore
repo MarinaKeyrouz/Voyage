@@ -1,0 +1,13 @@
+.DS_Store
+TravelProject/.classpath
+TravelProject/.project
+TravelProject/.settings/org.eclipse.jdt.core.prefs
+TravelProject/src/test/java/.DS_Store
+TravelProject/target/classes/TravelImplementation/Client.class
+TravelProject/target/classes/TravelImplementation/ClientTest.class
+TravelProject/target/classes/TravelImplementation/Country.class
+TravelProject/target/classes/TravelImplementation/CountryTest.class
+TravelProject/target/classes/TravelImplementation/Travel.class
+TravelProject/target/classes/TravelImplementation/TravelTest.class
+TravelProject/target/test-classes/stepDefinition/US_000_CountryCreation.class
+TravelProject/target/test-classes/stepDefinition/US_001_Choosing_a_Country.class
