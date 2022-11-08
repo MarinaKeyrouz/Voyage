@@ -16,23 +16,26 @@ public class Client
     // instance variables - replace the example below with your own
     private static int id;
     private String name;
-    private List<Voyage> voyage;
-    private String countryInit;
-	private String countryDest;
+    private List<Travel> travel;
+	private Country countryDest;
 
     /**
      * Constructor for objects of class Client
      */
-    public Client(String name, String countryInit) {
+    public Client(String name) {
         // initialize instance variables
         this.id ++;
         this.name = name;
-        this.voyage = new ArrayList<Voyage>();
-        this.countryInit=countryInit;
+        this.travel = new ArrayList<Travel>();
     }
     
-    public List<Voyage> getTravel() {
-		return voyage;
+    public Client() {
+    	 this.id ++;
+    	 this.travel = new ArrayList<Travel>();
+    }
+    
+    public List<Travel> getTravel() {
+		return travel;
 	}
    
 	public void setName(String name) {
@@ -46,31 +49,28 @@ public class Client
     public String getName() {
         return this.name;
     }
-    
-    public String getCountryInit() {
-		return countryInit;
+
+	@Override
+	public String toString() {
+		return "Client [name=" + name + ", countryDest=" + countryDest + "]";
 	}
 
-	public void setCountryInit(String countryInit) {
-		this.countryInit = countryInit;
-	}
-
-	public String getCountryDest() {
+	public Country getCountryDest() {
 		return countryDest;
 	}
 
 	public void setCountryDest(String countryDest) {
-		this.countryDest = countryDest;
+		this.countryDest = new Country(countryDest);
 	}
     
-    public Voyage createTravel(String travelMode, String country) {
-    	if (travelMode == null | country == null) {
+	
+    public Travel createTravel(String countryDest) {
+    	if (countryDest == null) {
     		throw new NullPointerException();
     	}
-    	this.countryDest=country;
-    	Voyage t = new Voyage(this.countryDest);
-        t.setTravelMode(travelMode);
-        this.voyage.add(t);
+    	this.setCountryDest(countryDest); 
+    	Travel t = new Travel(this.countryDest);
+        this.travel.add(t);
         return t;
     }
 }

@@ -10,9 +10,10 @@ import java.util.List;
  * @version (2 NOV 2022)
  */
 
-public class Voyage 
+public class Travel 
 {
-    private static int referenceNumber = 0;
+	
+	private static int referenceNumber = 0;
 	private Country country;
     private double price; 
 
@@ -20,24 +21,23 @@ public class Voyage
      * Constructor for objects of class Travel
      */
     
-    public Voyage() {
-        Voyage.referenceNumber++; 
+    public Travel() {
+        Travel.referenceNumber++; 
     	this.country = new Country();
     }
 
-    public Voyage(String country) {
-        Voyage.referenceNumber++;
-        this.country = new Country();
-        this.extracted().setCountryName(country);
+    public Travel(Country country) {
+        Travel.referenceNumber++;
+        this.country = country;
     }
     
-    public int getNumeroDeReference() {
-        return Voyage.referenceNumber;
-    }
-    
-    public void setNumeroDeReference(int numeroDeReference) {
-		Voyage.referenceNumber = numeroDeReference;
-	}
+    public static int getReferenceNumber() {
+ 		return referenceNumber;
+ 	}
+
+ 	public static void setReferenceNumber(int referenceNumber) {
+ 		Travel.referenceNumber = referenceNumber;
+ 	}
     
     public Country getCountry() {
         return this.extracted();
@@ -64,6 +64,6 @@ public class Voyage
     }
 
 	public String toString(){
-        return "Id: " + Voyage.referenceNumber + ", Country: " + this.extracted().getCountryName() + ", Travel Mode: " + this.extracted().travelModesToString();
+        return "Id: " + Travel.referenceNumber + ", Country: " + this.extracted().getCountryName() ;
     }
 }

@@ -47,13 +47,13 @@ public class Country
 		String mode ="";
         switch (travelMode.toUpperCase()){
             case "CAR":
-            	mode = "Car";
+            	mode = "CAR";
                 break;
             case "AIRPLANE":
-            	mode = "Airplane";
+            	mode = "AIRPLANE";
             	break;
             default:
-            	mode = "Bus";
+            	mode = "BUS";
             	break;
         }
         if (!(this.travelModes.contains(mode))){
@@ -74,4 +74,10 @@ public class Country
          }
          return modes;
     }
+
+	@Override
+	public String toString() {
+		return "Country [countryName=" + countryName + ", travelModes=" + travelModes + "]" ;
+	}
+	
 }
