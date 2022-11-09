@@ -14,8 +14,7 @@ Then the country and the travel modes are saved and available for the client to 
 Examples: 
 | countryName    | travelModes |
 | Afghanistan    | airplane    | 
-#| Albania      | airplane  
-#| Algeria      | airplane, bus
+| Albania        | bus         |
   
   
      

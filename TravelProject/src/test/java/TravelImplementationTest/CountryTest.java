@@ -1,9 +1,13 @@
-package TravelImplementation;
+package TravelImplementationTest;
 
 
 
+import org.junit.After;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
@@ -14,6 +18,8 @@ import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import TravelImplementation.Country;
 
 
 
@@ -28,7 +34,7 @@ public class CountryTest
     /**
      * Default constructor for test class CountryTest
      */
-	private Country country;
+	private static Country country;
 
     /**
      * Sets up the test fixture.
@@ -43,7 +49,7 @@ public class CountryTest
     @Test
     public void testaddTravelModes() {
 //    	Check a normal add travel mode
-    	List<String> actual = Arrays.asList("Car", "Bus", "Airplane");
+    	List<String> actual = Arrays.asList("CAR", "BUS", "AIRPLANE");
     	this.country.addTravelModes("car");
     	this.country.addTravelModes("hsh");
     	List<String> expected = this.country.addTravelModes("aiRPlane");
@@ -52,7 +58,7 @@ public class CountryTest
 //    	Check if we add two or more mode from the same type
 //    	We should first empty the list so we can add again
     	this.country.removeTravelModes();
-    	actual = Arrays.asList("Car", "Bus");
+    	actual = Arrays.asList("CAR", "BUS");
     	this.country.addTravelModes("car");
     	this.country.addTravelModes("car");
     	this.country.addTravelModes("Bus");
@@ -86,7 +92,9 @@ public class CountryTest
     	Assertions.assertEquals(expected, this.country.getTravelModes());
     }
     
-    protected void tearDown() {
-    	this.country = null;
+    @AfterAll
+    protected static void tearDown() {
+    	country = null;
+    	assertNull(country);
     }
 }

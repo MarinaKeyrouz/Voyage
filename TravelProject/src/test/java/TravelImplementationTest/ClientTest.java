@@ -1,16 +1,19 @@
-package TravelImplementation;
+package TravelImplementationTest;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import TravelImplementation.Client;
 
 /**
  * Write a description of class Voyage here.
@@ -44,13 +47,16 @@ public class ClientTest
     	// We are chekcing it set the country name 
     	assertEquals(client.getTravel().get(0).getCountry().getCountryName(),"France");
     	assertEquals(client.getTravel().get(1).getCountry().getCountryName(),"Italy"); 
-    	// We are checking that it create a new travel with the country destination
-    	assertEquals(client.getTravel().get(0),new Travel(new Country("France")));
-    	assertEquals(client.getTravel().get(1),new Travel(new Country("Italy")));
     	//We are checking null input 
     	assertThrows(NullPointerException.class,
 	            ()->{
-	            	this.client.createTravel(null);
+	            	ClientTest.client.createTravel(null);
 	            });
+    }
+    
+    @AfterAll
+    protected static void tearDown() {
+    	client = null;
+    	assertNull(client);
     }
 }

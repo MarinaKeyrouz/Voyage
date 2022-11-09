@@ -1,4 +1,4 @@
-package TravelImplementation;
+package TravelImplementationTest;
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,10 +7,15 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.junit.After;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import TravelImplementation.Country;
+import TravelImplementation.Travel;
 
 /**
  * Write a description of class Voyage here.
@@ -30,28 +35,18 @@ public class TravelTest
    protected static void setUp() {
 	   t = new Travel(new Country("France"));
    }
-   
-    @Test
-    public void testConstructor() {
-    	assertEquals("France",t.getCountry().getCountryName());
-    	assertEquals(1,t.getReferenceNumber());
-    }
-
-    @Test
-    public void testToString() {
-        String expected = "Id: 1, Country: France, Travel Mode: Car " ; // put the expected value here
-        assertEquals(expected, t.toString());
-    } 
     
     @Test
     public void testSetTravelMode() {
-    	List<String> actual = Arrays.asList("Car");
-    	t.setTravelMode("Car");
+    	List<String> actual = Arrays.asList("CAR");
+    	t.setTravelMode("CAR");
     	assertEquals(t.getCountry().getTravelModes(),actual);
     	
     }
     
-    protected void tearDown() {
-    	this.t = null;
+    @AfterAll
+    protected static void tearDown() {
+    	t = null;
+    	assertNull(t);
     }
 }

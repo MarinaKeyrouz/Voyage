@@ -15,7 +15,7 @@ public class Travel
 	
 	private static int referenceNumber = 0;
 	private Country country;
-    private double price; 
+	private double price; 
 
 	/**
      * Constructor for objects of class Travel
@@ -30,6 +30,10 @@ public class Travel
         Travel.referenceNumber++;
         this.country = country;
     }
+    
+    public void setCountry(Country country) {
+		this.country = country;
+	}
     
     public static int getReferenceNumber() {
  		return referenceNumber;

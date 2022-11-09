@@ -62,7 +62,6 @@ public class Client
 	public void setCountryDest(String countryDest) {
 		this.countryDest = new Country(countryDest);
 	}
-    
 	
     public Travel createTravel(String countryDest) {
     	if (countryDest == null) {
