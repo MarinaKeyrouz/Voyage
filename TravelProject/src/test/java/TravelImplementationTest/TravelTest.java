@@ -1,6 +1,7 @@
 package TravelImplementationTest;
 
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
@@ -29,24 +30,30 @@ public class TravelTest
     /**
      * Default constructor for test class TravelTest
      */
-	private static Travel t;
+	private static Travel travel;
 	
    @BeforeAll
    protected static void setUp() {
-	   t = new Travel(new Country("France"));
+	   travel = new Travel(new Country("France"));
    }
     
     @Test
     public void testSetTravelMode() {
     	List<String> actual = Arrays.asList("CAR");
-    	t.setTravelMode("CAR");
-    	assertEquals(t.getCountry().getTravelModes(),actual);
-    	
+    	travel.setTravelMode("CAR");
+    	assertEquals(travel.getCountry().getTravelModes(),actual);	
+    }
+    
+    @Test
+    public void testGetCountry() {
+    	Country country = new Country("Lebanon");
+    	travel.setCountry(country);
+    	assertEquals(country.getCountryName(), country.getCountryName());
     }
     
     @AfterAll
     protected static void tearDown() {
-    	t = null;
-    	assertNull(t);
+    	travel = null;
+    	assertNull(travel);
     }
 }

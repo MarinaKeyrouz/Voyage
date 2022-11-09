@@ -1,5 +1,6 @@
 package TravelImplementationTest;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import TravelImplementation.Client;
+import TravelImplementation.Country;
+import TravelImplementation.Travel;
 
 /**
  * Write a description of class Voyage here.
@@ -31,11 +34,12 @@ public class ClientTest
 	
     @BeforeAll
     public static void setUp() {
-        client = new Client("Marina");
+        client = new Client();
     }
     
     @Test
-    public void testConstructor() {
+    public void testGetterAndSetter() {
+    	client.setName("Marina");
     	assertEquals("Marina", client.getName());
     	assertEquals(1,client.getId());
     }
@@ -52,6 +56,18 @@ public class ClientTest
 	            ()->{
 	            	ClientTest.client.createTravel(null);
 	            });
+    }
+    
+    @Test
+    public void testGetTravel() {
+    	Travel t = client.createTravel("France");
+    	assertTrue(client.getTravel().contains(t));
+    }
+    
+    @Test
+    public void testGetterAndSetterCountryName() {
+        client.setCountryDest("Lebanon");
+        assertEquals(client.getCountryDest().getCountryName(), "Lebanon");
     }
     
     @AfterAll

@@ -9,17 +9,20 @@ import org.junit.jupiter.api.Assertions;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import TravelImplementation.Country;
+import TravelImplementation.Travel;
 
 
 
@@ -75,6 +78,7 @@ public class CountryTest
 	            });
     	
     }
+    
     @Test
     public void testremoveTravelModes() {
     	this.country = new Country();
@@ -90,6 +94,12 @@ public class CountryTest
     	
 //    	Be sure that the list is now empty
     	Assertions.assertEquals(expected, this.country.getTravelModes());
+    }
+    
+    @Test
+    public void testGetCountryName() {
+    	country.setCountryName("Lebanon");
+    	assertEquals("Lebanon", country.getCountryName());
     }
     
     @AfterAll

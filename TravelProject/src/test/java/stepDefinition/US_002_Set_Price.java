@@ -11,7 +11,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class US_02_Set_Price {
+public class US_002_Set_Price {
 	
 	Travel travel ;
 	Country country;
