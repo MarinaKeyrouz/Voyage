@@ -43,7 +43,6 @@ public class US_001_Choosing_a_Country {
 	    // Write code here that turns the phrase above into concrete actions
 	   client.createTravel(countryDest);
 	   Assert.assertTrue(this.client.getTravel()!=null);
-	   System.out.println(client.getTravel().get(0).toString().getClass().getName());
 	}
 
 	@Then("a travel instance is created and the travel details is printed using (.*)$")
