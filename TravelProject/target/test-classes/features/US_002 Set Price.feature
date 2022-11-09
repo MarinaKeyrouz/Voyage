@@ -1,6 +1,6 @@
 #Author: marina.kayrouz@dauphine.eu, zahra.ayache@dauphine.eu
 
-Feature: US_02 Set Price
+Feature: US_002 Set Price
 
 As an agent, 
 I would like to be able to set the price for a new travel.

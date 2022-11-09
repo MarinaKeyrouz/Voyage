@@ -7,8 +7,7 @@ I would like to be able to create a new country of destination and its travel mo
 
 Scenario: Create a new country and travel modes associated
 Given the creation of a country using the name <countryName>  
-And an agent enters the travel modes using <travelModes>
-When the agent validates that the entries are correct
+When an agent enters the travel modes using <travelModes>
 Then the country and the travel modes are saved and available for the client to choose from.
   
 Examples: 
