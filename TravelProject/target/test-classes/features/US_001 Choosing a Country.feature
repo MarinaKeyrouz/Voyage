@@ -10,10 +10,10 @@ Given a country and a client
 And the country contains a <countryName> and its <travelModes>
 And the client contains a <clientName> 
 When the client create a travel instance using the <countryDest>
-Then a travel instance is created and the travel details is printed using <travel>
+Then a <travel> instance is created.
   
 Examples: 
-| clientName | countryName    | travelModes | countryDest  |travel                         |
+| clientName | countryName    | travelModes | countryDest  | travel                        |
 | Sam        | Afghanistan    | AIRPLANE    | Afghanistan  | Id: 1, Country: Afghanistan   |
   
   

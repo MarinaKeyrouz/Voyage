@@ -37,5 +37,5 @@ public class US_000_CountryCreation {
 		assertTrue(this.country.getTravelModes().equals(expected));	
 		Assert.assertTrue(!(this.country.getTravelModes().isEmpty()));
 	}
-
 }
+
