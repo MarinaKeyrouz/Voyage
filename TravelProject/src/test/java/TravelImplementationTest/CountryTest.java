@@ -56,7 +56,7 @@ public class CountryTest
     	CountryTest.country.addTravelModes("car");
     	CountryTest.country.addTravelModes("hsh");
     	List<String> expected = CountryTest.country.addTravelModes("aiRPlane");
-    	assertThat(actual, is((expected)));
+    	assertEquals(actual,expected);
   
 //    	Check if we add two or more mode from the same type
 //    	We should first empty the list so we can add again
@@ -66,7 +66,7 @@ public class CountryTest
     	CountryTest.country.addTravelModes("car");
     	CountryTest.country.addTravelModes("Bus");
     	expected = CountryTest.country.addTravelModes("hsd");
-    	assertThat(actual, is((expected)));
+    	assertEquals(actual, expected);
     	
     	
 //    	Check that it will throw an exception if we add a null travel mode

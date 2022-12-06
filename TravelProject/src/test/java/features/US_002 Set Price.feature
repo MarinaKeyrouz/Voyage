@@ -5,7 +5,7 @@ Feature: US_002 Set Price
 As an agent, 
 I would like to be able to set the price for a new travel.
 
-Scenario: Set the price 
+Scenario Outline: Set the price 
 Given a travel  
 And the travel contains a Country
 And the Country contains <countryName> and <travelModes> 

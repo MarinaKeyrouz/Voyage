@@ -11,8 +11,7 @@ import java.util.List;
  * @version (2 NOV 2022)
  */
 
-public class Client
-{
+public class Client implements ClientInterface{
     // instance variables - replace the example below with your own
     private static int id;
     private String name;
@@ -71,6 +70,11 @@ public class Client
     	Travel t = new Travel(this.countryDest);
         this.travel.add(t);
         return t;
+    }
+    
+    @Override
+    public String entertain(String type, String title) {
+    	return "Fail, please retry !";
     }
 }
 
