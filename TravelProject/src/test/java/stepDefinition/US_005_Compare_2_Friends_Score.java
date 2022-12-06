@@ -7,7 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Feature003Compare2FriendsScore {
+public class US_005_Compare_2_Friends_Score {
 	private Friend friend1;
 	private Friend friend2;
 	private boolean compare1To2;

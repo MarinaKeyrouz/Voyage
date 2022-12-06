@@ -7,11 +7,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Feature001AddSongToPlaylist {
+public class US_003_Add_Song_To_Playlist {
 	private Song song; 
 	private Friend friend;
 	
-	@Given("^a user : (.*)$")
+	@Given("^a user (.*)$")
 	public void createUtilisateur(String friendName) {
 		friend = new Friend(friendName);
 		Assert.assertTrue(this.friend != null);

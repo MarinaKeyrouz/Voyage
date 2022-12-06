@@ -12,7 +12,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class US_000_CountryCreation {
+public class US_000_Country_Creation {
 
 	Country country ;
 	List<String> expected = new ArrayList<String>();
@@ -31,10 +31,12 @@ public class US_000_CountryCreation {
 		expected.add(mode.toUpperCase());
 	}
 
-	@Then("the country and the travel modes are saved and available for the client to choose from.")
-	public void the_country_and_the_travel_modes_are_saved_and_available_for_the_client_to_choose_from() {
+	@Then("^the (.*) and its travel modes are available for the client to choose from.")
+	public void the_country_and_the_travel_modes_are_saved_and_available_for_the_client_to_choose_from(String country) {
 		// Write code here that turns the phrase above into concrete actions
 		assertTrue(this.country.getTravelModes().equals(expected));	
+		String countryString = this.country.toString();
+		assertTrue(countryString.equals(country));
 		Assert.assertTrue(!(this.country.getTravelModes().isEmpty()));
 	}
 }

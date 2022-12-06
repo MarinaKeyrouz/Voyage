@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 import song.Friend;
 import song.Song;
 
-public class Feature002GetSongAndPlaylistScore {
+public class US_004_Get_Song_And_Playlist_Score {
 	private Song song1;
 	private Song song2;
 	private Friend friend;
