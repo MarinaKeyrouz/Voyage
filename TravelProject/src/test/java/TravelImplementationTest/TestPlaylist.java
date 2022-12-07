@@ -51,18 +51,31 @@ class TestPlaylist {
     
     @Test
     public void testGetScoreOfSong() {
+        assertThrows(NullPointerException.class,
+                ()->{
+                    playlist.getScoreOfASong(null);
+                });
         playlist.addSong(djadja);
         assertEquals(1, playlist.getScoreOfASong("djadja"));
+        assertEquals(-1, playlist.getScoreOfASong("brbr"));
     }
     
     @Test
     public void testAddrSong() {
+        assertThrows(NullPointerException.class,
+                ()->{
+                    playlist.addSong(null);
+                });
         playlist.addSong(djadja);
         assertEquals(djadja, playlist.getSongs().get(0));
     }
     
     @Test
     public void testRemoveSong() {
+        assertThrows(NullPointerException.class,
+                ()->{
+                    playlist.removeSong(null);
+                });
         playlist.addSong(djadja);
         playlist.removeSong(djadja);
         assertEquals(0, playlist.getSongs().size());

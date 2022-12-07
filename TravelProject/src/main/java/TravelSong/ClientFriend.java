@@ -1,25 +1,40 @@
 package TravelSong;
 
-import TravelImplementation.Client;
-import TravelImplementation.ClientInterface;
-import TravelImplementation.Travel;
-import song.Friend;
-import song.FriendInterface;
-import song.Song;
+import java.util.Objects;
 
-public class ClientFriend implements ClientInterface {
+import song.Friend;
+import song.Playlist;
+
+public class ClientFriend {
 	
-	Friend friend;
+	private Friend friend;
+	private Playlist playlist;
 
 	public ClientFriend(String name) {
+		Objects.requireNonNull(name);
 		friend = new Friend(name);
 	}
 	
-	@Override
+	public Friend getFriend() {
+		return this.friend;
+	}
+
 	public String entertain(String type, String title) {
 		if (type.equals("Music")) {
 			return friend.playSong(title);
 		}
 		return "Wrong format";
+	}
+
+	public void update() {
+		Playlist playlist = this.playlist.getUpdate(this);
+		if (playlist != null) {
+			this.friend.setPlaylist(playlist);
+			System.out.println("the playlist has been updated : " + playlist.getSongs());
+		}
+	}
+
+	public void setPlaylist(Playlist playlist) {
+		this.playlist = playlist;
 	}
 }

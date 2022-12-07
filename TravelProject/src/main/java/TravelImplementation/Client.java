@@ -3,6 +3,7 @@ package TravelImplementation;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Write a description of class Voyage here.
@@ -11,7 +12,7 @@ import java.util.List;
  * @version (2 NOV 2022)
  */
 
-public class Client implements ClientInterface{
+public class Client {
     // instance variables - replace the example below with your own
     private static int id;
     private String name;
@@ -23,13 +24,14 @@ public class Client implements ClientInterface{
      */
     public Client(String name) {
         // initialize instance variables
-        this.id ++;
+		Objects.requireNonNull(name);
+        id ++;
         this.name = name;
         this.travel = new ArrayList<Travel>();
     }
     
     public Client() {
-    	 this.id ++;
+    	 id ++;
     	 this.travel = new ArrayList<Travel>();
     }
     
@@ -38,11 +40,12 @@ public class Client implements ClientInterface{
 	}
    
 	public void setName(String name) {
+		Objects.requireNonNull(name);
 		this.name = name;
 	}
 
 	public int getId() {
-        return this.id;
+        return id;
     }
 
     public String getName() {
@@ -59,6 +62,7 @@ public class Client implements ClientInterface{
 	}
 
 	public void setCountryDest(String countryDest) {
+		Objects.requireNonNull(countryDest);
 		this.countryDest = new Country(countryDest);
 	}
 	
@@ -71,9 +75,10 @@ public class Client implements ClientInterface{
         this.travel.add(t);
         return t;
     }
-    
-    @Override
+
     public String entertain(String type, String title) {
+		Objects.requireNonNull(type);
+		Objects.requireNonNull(title);
     	return "Fail, please retry !";
     }
 }

@@ -11,16 +11,16 @@ public class US_003_Add_Song_To_Playlist {
 	private Song song; 
 	private Friend friend;
 	
-	@Given("^a user (.*)$")
-	public void createUtilisateur(String friendName) {
+	@Given("^a user : (.*)$")
+	public void createFriend(String friendName) {
 		friend = new Friend(friendName);
-		Assert.assertTrue(this.friend != null);
+		Assert.assertNotNull(this.friend);
 	}
 	
 	@Given("^a song (.*) with a score (\\d+)$")
-	public void createChanson(String songName, int score) {
+	public void createSong(String songName, int score) {
 		song = new Song(songName, score);
-		Assert.assertTrue(this.song != null);
+		Assert.assertNotNull(this.song);
 	}
 	
 	@When("^the user adds the song in his playlist$")
@@ -28,9 +28,9 @@ public class US_003_Add_Song_To_Playlist {
 		this.friend.addSong(song);
 	}
 	
-	@Then("^the playlist contains the song$")
-	public void checkPlaylist() {
-		Assert.assertEquals(this.song, this.friend.getPlaylist().getSongs().get(0));
+	@Then("^the playlist contains the song (.*)$")
+	public void checkPlaylist(String songName) {
+		Assert.assertEquals(songName, this.friend.getPlaylist().getSongs().get(0).getName());
 	}
 	
 }

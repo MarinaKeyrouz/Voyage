@@ -31,4 +31,9 @@ public class Song {
         this.score += y;
         return this.score;
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

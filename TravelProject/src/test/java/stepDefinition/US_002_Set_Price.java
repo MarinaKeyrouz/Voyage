@@ -1,6 +1,5 @@
 package stepDefinition;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Assert;
@@ -20,14 +19,14 @@ public class US_002_Set_Price {
 	public void a_travel() {
 	    // Write code here that turns the phrase above into concrete actions
 	    travel = new Travel();
-	    Assert.assertTrue(this.travel!=null);
+		Assert.assertNotNull(this.travel);
 	}
 
 	@Given("the travel contains a Country")
 	public void the_travel_contains_a_country() {
 	    // Write code here that turns the phrase above into concrete actions
 	    country = new Country();
-	    Assert.assertTrue(this.country!=null);
+		Assert.assertNotNull(this.country);
 	}
 
 	@Given("the Country contains (.*) and (.*)$")
@@ -36,8 +35,8 @@ public class US_002_Set_Price {
 	    this.country.setCountryName(countryName);
 	    this.country.addTravelModes(travelModes);
 		travel.setCountry(country);
-		Assert.assertTrue(this.travel!=null);
-		Assert.assertTrue(this.country!=null);
+		Assert.assertNotNull(this.travel);
+		Assert.assertNotNull(this.country);
 	}
 
 	@When("the agent set the {double}")

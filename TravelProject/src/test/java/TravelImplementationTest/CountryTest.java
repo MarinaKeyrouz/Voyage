@@ -1,29 +1,20 @@
 package TravelImplementationTest;
 
 
-
-import org.junit.After;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
-import static org.hamcrest.CoreMatchers.*;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import TravelImplementation.Country;
-import TravelImplementation.Travel;
-
 
 
 /**
@@ -46,7 +37,7 @@ public class CountryTest
      */
     @BeforeEach
     public void setUp() {
-    	this.country = new Country();
+    	CountryTest.country = new Country();
     }
     
     @Test

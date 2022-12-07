@@ -1,20 +1,22 @@
 package TravelImplementationTest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import TravelImplementation.Client;
 import TravelSong.ClientFriend;
-import song.Friend;
 
 class ClientFriendTest {
 	private static ClientFriend adapter;
 	
 	@BeforeAll
 	public static void testClientFriend() {
+		assertThrows(NullPointerException.class,
+	            ()->{
+	            	new ClientFriend(null);
+	            });
         adapter = new ClientFriend("Alexy");
 	}
 
@@ -22,7 +24,7 @@ class ClientFriendTest {
 	public void testEntertain() {
 		assertThrows(NullPointerException.class,
 	            ()->{
-	            	ClientFriendTest.adapter.entertain(null,null);
+	            	ClientFriendTest.adapter.entertain(null, null);
 	            });
 		assertEquals(adapter.entertain("Music", "Rock"), "This song: Rock is being played");
 	}

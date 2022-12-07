@@ -2,7 +2,7 @@ package song;
 
 import java.util.Objects;
 
-public class Friend implements FriendInterface{
+public class Friend {
     private String name;
     private Playlist playlist;
 
@@ -17,12 +17,14 @@ public class Friend implements FriendInterface{
     }
     
     public Friend(String name, Song song) {
-    	this(name);
+        this(name);
+        Objects.requireNonNull(song);
         this.addSong(song);
     }
 
     public Friend(String name, Playlist playlist) {
-    	this(name);
+        this(name);
+        Objects.requireNonNull(playlist);
     	this.playlist = playlist;
     }
     
@@ -33,12 +35,19 @@ public class Friend implements FriendInterface{
     public Playlist getPlaylist() {
         return this.playlist;
     }
+
+    public void setPlaylist(Playlist playlist) {
+        Objects.requireNonNull(playlist);
+        this.playlist = playlist;
+    }
     
     public void addSong(Song song) {
+        Objects.requireNonNull(song);
     	this.playlist.addSong(song);
     }
     
     public void removeSong(Song song) {
+        Objects.requireNonNull(song);
     	this.playlist.removeSong(song);
     }
     
@@ -47,14 +56,20 @@ public class Friend implements FriendInterface{
     }
     
     public int getScoreOfASong(String songName) {
+        Objects.requireNonNull(songName);
     	return this.playlist.getScoreOfASong(songName);
     }
     
-    public boolean compareToFriend(Friend friend) {
-    	return this.getScore() > friend.getScore();
+    public Friend compareToFriend(Friend friend) {
+        Objects.requireNonNull(friend);
+    	if (this.getScore() > friend.getScore()) {
+            return this;
+        }
+        return friend;
     }
     
     public String playSong(String song) {
+        Objects.requireNonNull(song);
     	return "This song: "+song+" is being played";
     }
     

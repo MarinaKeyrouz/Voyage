@@ -20,11 +20,11 @@ public class Country
      * Constructor for objects of class Country
      */
     public Country() {
-    	this.travelModes = new ArrayList<String>() ; 
+    	this.travelModes = new ArrayList<>() ;
     }
     
     public Country(String countryName) {
-    	this.travelModes = new ArrayList<String>() ; 
+    	this.travelModes = new ArrayList<>() ;
     	this.countryName = countryName;
     }
 
@@ -44,7 +44,7 @@ public class Country
 		if (travelMode == null) {
     		throw new NullPointerException();
     	}
-		String mode ="";
+		String mode;
         switch (travelMode.toUpperCase()){
             case "CAR":
             	mode = "CAR";
@@ -68,11 +68,11 @@ public class Country
 	}
     
     public String travelModesToString() {
-    	 String modes ="";
+    	 StringBuilder modes = new StringBuilder();
          for (String m: this.travelModes) {
-         	modes += m +" ";
+         	modes.append(m).append(" ");
          }
-         return modes;
+         return modes.toString();
     }
 
 	@Override

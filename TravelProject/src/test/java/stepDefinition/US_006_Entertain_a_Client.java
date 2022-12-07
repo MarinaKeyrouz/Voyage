@@ -1,40 +1,52 @@
 package stepDefinition;
 
-import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Assert;
 
 import TravelImplementation.Client;
-import TravelImplementation.Country;
+import TravelSong.ClientFriend;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import song.Friend;
+import song.Playlist;
+import song.Song;
 
-public class US_006_Entertain_a_Client {
+public class US_006_Entertain_a_client {
 	
-	Client client;
-	Country country ;
-
-	@Given("the creation of a client using the (.*)$")
-	public void the_creation_of_a_client_using_the_sam() {
-	    // Write code here that turns the phrase above into concrete actions
-	   
+	private ClientFriend client;
+	private Playlist playlist;
+	private Song song;
+	
+	@Given("a new client : (.*)$")
+	public void createClient(String friendName1) {
+		client = new ClientFriend(friendName1);
+		Assert.assertNotNull(this.client);
 	}
-
-	@When("the client travels by choosing a (.*) that creates a (.*) instance")
-	public void the_client_travels_by_choosing_a_afghanistan_that_creates_a_id_country_afghanistan_instance(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	
+	@Given("^a playlist$")
+	public void createPlaylist() {
+		playlist = new Playlist();
+		Assert.assertNotNull(this.playlist);
 	}
-
-	@Then("the client can listen to music by choosing his (.*)$.")
-	public void the_client_can_listen_to_music_by_choosing_his_this_song_rock_is_being_played() {
-	    // Write code here that turns the phrase above into concrete actions
-	   
+	
+	@Given("^a song (.*), (\\d+)$")
+	public void createSong(String songName, int score) {
+		song = new Song(songName, score);
+		Assert.assertNotNull(this.song);
+		this.playlist.addSong(song);
 	}
+	
+	@When("^a user subscribe to a playlist$")
+	public void subscribeAndUpdate() {
+		this.playlist.register(client);
+		this.client.setPlaylist(playlist);
+		this.client.update();
+	}
+	
+	@Then("^the song (.*) is in the client playlist$")
+	public void songInClientPlaylist(String songName) {
+		Assert.assertEquals(songName, this.client.getFriend().getPlaylist().getSongs().get(0).getName());
+	}
+	
 	
 }
-

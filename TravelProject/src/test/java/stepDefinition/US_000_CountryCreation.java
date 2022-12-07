@@ -1,6 +1,6 @@
 package stepDefinition;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class US_000_Country_Creation {
+public class US_000_CountryCreation {
 
 	Country country ;
 	List<String> expected = new ArrayList<String>();
@@ -31,13 +31,11 @@ public class US_000_Country_Creation {
 		expected.add(mode.toUpperCase());
 	}
 
-	@Then("^the (.*) and its travel modes are available for the client to choose from.")
-	public void the_country_and_the_travel_modes_are_saved_and_available_for_the_client_to_choose_from(String country) {
+	@Then("the country and the travel modes are saved and available for the client to choose from.")
+	public void the_country_and_the_travel_modes_are_saved_and_available_for_the_client_to_choose_from() {
 		// Write code here that turns the phrase above into concrete actions
-		assertTrue(this.country.getTravelModes().equals(expected));	
-		String countryString = this.country.toString();
-		assertTrue(countryString.equals(country));
-		Assert.assertTrue(!(this.country.getTravelModes().isEmpty()));
+		assertEquals(this.country.getTravelModes(), expected);
+		Assert.assertFalse(this.country.getTravelModes().isEmpty());
 	}
 }
 

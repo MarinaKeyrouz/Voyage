@@ -19,8 +19,8 @@ public class US_001_Choosing_a_Country {
 	    // Write code here that turns the phrase above into concrete actions
 		country = new Country();
 		client = new Client();
-		Assert.assertTrue(this.country!=null);
-		Assert.assertTrue(this.client!=null);
+		Assert.assertNotNull(this.country);
+		Assert.assertNotNull(this.client);
 	}
 
 	@Given("the country contains a (.*) and its (.*)$")
@@ -39,14 +39,14 @@ public class US_001_Choosing_a_Country {
 	@When("the client create a travel instance using the (.*)$")
 	public void create_travel_using_country_destination(String countryDest) {
 	    // Write code here that turns the phrase above into concrete actions
-	   client.createTravel(countryDest);
-	   Assert.assertTrue(this.client.getTravel()!=null);
+	    client.createTravel(countryDest);
+		Assert.assertNotNull(this.client.getTravel());
 	}
 
 	@Then("^a (.*) instance is created.")
 	public void a_travel_instance_is_created_and_the_travel_details_is_printed_using_id_country_afghanistan_travel_mode_airplane(String output) {
 	    // Write code here that turns the phrase above into concrete action
-	   Assert.assertTrue(client.getCountryDest().getCountryName().equals(country.getCountryName()));
-	   Assert.assertTrue(client.getTravel().get(0).toString().equals(output));
+		Assert.assertEquals(client.getCountryDest().getCountryName(), country.getCountryName());
+		Assert.assertEquals(client.getTravel().get(0).toString(), output);
 	}
 }

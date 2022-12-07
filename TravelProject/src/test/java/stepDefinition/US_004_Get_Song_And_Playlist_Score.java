@@ -9,23 +9,21 @@ import song.Friend;
 import song.Song;
 
 public class US_004_Get_Song_And_Playlist_Score {
-	private Song song1;
-	private Song song2;
 	private Friend friend;
 	private int score;
 	
 	@Given("^a new user (.*)$")
-	public void createUtilisateur2(String friendName) {
+	public void createFriend(String friendName) {
 		friend = new Friend(friendName);
-		Assert.assertTrue(this.friend != null);	
+		Assert.assertNotNull(this.friend);
 	}
 	
 	@Given("^multiple songs \\((.*), (\\d+)\\), \\((.*), (\\d+)\\)$")
-	public void createChanson2(String songName1, int score1, String songName2, int score2) {
-		this.song1 = new Song(songName1, score1);
-		this.song2 = new Song(songName2, score2);
-		Assert.assertTrue(this.song1 != null);
-		Assert.assertTrue(this.song2 != null);
+	public void createSong2(String songName1, int score1, String songName2, int score2) {
+		Song song1 = new Song(songName1, score1);
+		Song song2 = new Song(songName2, score2);
+		Assert.assertNotNull(song1);
+		Assert.assertNotNull(song2);
 		this.friend.addSong(song1);
 		this.friend.addSong(song2);
 		Assert.assertEquals(2, this.friend.getPlaylist().getSongs().size());
@@ -36,9 +34,9 @@ public class US_004_Get_Song_And_Playlist_Score {
 		this.score = this.friend.getScore();
 	}
 	
-	@Then("^the score of the playlist is returned$")
-	public void returnScoreOfThePlaylist() {
-		Assert.assertEquals(this.song1.getScore() + this.song2.getScore(), this.score);
+	@Then("^the score (\\d+) of the playlist is returned$")
+	public void returnScoreOfThePlaylist(int score) {
+		Assert.assertEquals(score, this.score);
 	}
 		
 }

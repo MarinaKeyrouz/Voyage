@@ -3,19 +3,9 @@ package TravelImplementationTest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import org.junit.Before;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import TravelImplementation.Client;
-import TravelImplementation.Country;
 import TravelImplementation.Travel;
 
 /**
@@ -40,8 +30,8 @@ public class ClientTest
     @Test
     public void testGetterAndSetter() {
     	client.setName("Marina");
-    	assertEquals("Marina", client.getName());
-    	assertEquals(1,client.getId());
+    	Assertions.assertEquals("Marina", client.getName());
+    	Assertions.assertEquals(1, client.getId());
     }
     
     @Test
@@ -49,8 +39,8 @@ public class ClientTest
     	client.createTravel("France");
     	client.createTravel("Italy");
     	// We are chekcing it set the country name 
-    	assertEquals(client.getTravel().get(0).getCountry().getCountryName(),"France");
-    	assertEquals(client.getTravel().get(1).getCountry().getCountryName(),"Italy"); 
+    	Assertions.assertEquals(client.getTravel().get(0).getCountry().getCountryName(), "France");
+    	Assertions.assertEquals(client.getTravel().get(1).getCountry().getCountryName(), "Italy");
     	//We are checking null input 
     	assertThrows(NullPointerException.class,
 	            ()->{

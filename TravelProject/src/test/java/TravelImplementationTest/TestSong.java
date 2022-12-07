@@ -31,6 +31,18 @@ public class TestSong {
     }
 
     @Test
+    public void testSong() {
+        assertThrows(NullPointerException.class,
+                ()->{
+                    new Song(null, 1);
+                });
+        assertThrows(IllegalArgumentException.class,
+                ()->{
+                    new Song("djadja", -1);
+                });
+    }
+
+    @Test
     public void testGetName() {
     	assertEquals("djadja", djadja.getName());
     }

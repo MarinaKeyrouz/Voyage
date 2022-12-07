@@ -15,7 +15,5 @@ Then a <travel> instance is created.
 Examples: 
 | clientName | countryName    | travelModes | countryDest  | travel                        |
 | Sam        | Afghanistan    | AIRPLANE    | Afghanistan  | Id: 1, Country: Afghanistan   |
-  
-  
      
 
