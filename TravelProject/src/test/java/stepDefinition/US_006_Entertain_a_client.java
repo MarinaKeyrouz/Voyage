@@ -2,12 +2,10 @@ package stepDefinition;
 
 import org.junit.Assert;
 
-import TravelImplementation.Client;
 import TravelSong.ClientFriend;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import song.Friend;
 import song.Playlist;
 import song.Song;
 

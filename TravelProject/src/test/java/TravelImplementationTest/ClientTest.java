@@ -3,6 +3,7 @@ package TravelImplementationTest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.Before;
 import org.junit.jupiter.api.*;
 
 import TravelImplementation.Client;
@@ -25,6 +26,11 @@ public class ClientTest
     @BeforeAll
     public static void setUp() {
         client = new Client();
+    }
+    
+    @AfterAll
+    public static void teardown() {
+        client = null;
     }
     
     @Test
@@ -59,10 +65,5 @@ public class ClientTest
         client.setCountryDest("Lebanon");
         assertEquals(client.getCountryDest().getCountryName(), "Lebanon");
     }
-    
-    @AfterAll
-    protected static void tearDown() {
-    	client = null;
-    	assertNull(client);
-    }
+   
 }

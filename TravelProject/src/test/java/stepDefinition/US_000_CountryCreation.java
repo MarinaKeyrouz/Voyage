@@ -1,6 +1,6 @@
 package stepDefinition;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,17 +25,19 @@ public class US_000_CountryCreation {
 	}
 
 	@When("^an agent enters the travel modes using (.*)$")
-	public void tan_agent_enters_the_travel_modes_using_travel_modes(String mode) {
+	public void an_agent_enters_the_travel_modes_using_travel_modes(String mode) {
 		// Write code here that turns the phrase above into concrete actions
 		country.addTravelModes(mode);
 		expected.add(mode.toUpperCase());
 	}
 
-	@Then("the country and the travel modes are saved and available for the client to choose from.")
-	public void the_country_and_the_travel_modes_are_saved_and_available_for_the_client_to_choose_from() {
+	@Then("^the (.*) and its travel modes are available for the client to choose from.$")
+	public void the_country_and_the_travel_modes_are_saved_and_available_for_the_client_to_choose_from(String country) {
 		// Write code here that turns the phrase above into concrete actions
-		assertEquals(this.country.getTravelModes(), expected);
-		Assert.assertFalse(this.country.getTravelModes().isEmpty());
+		assertTrue(this.country.getTravelModes().equals(expected));
+		String countryString = this.country.toString();
+		assertTrue(countryString.equals(country));
+		assertTrue(!this.country.getTravelModes().isEmpty());
 	}
 }
 

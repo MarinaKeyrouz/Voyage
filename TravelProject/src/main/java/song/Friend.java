@@ -70,7 +70,7 @@ public class Friend {
     
     public String playSong(String song) {
         Objects.requireNonNull(song);
-    	return "This song: "+song+" is being played";
+    	return "This song: " + song + " is being played";
     }
     
 }

@@ -11,7 +11,7 @@ public class Main {
         ClientFriend client1 = new ClientFriend("Client 1");
         ClientFriend client2 = new ClientFriend("Client 2");
         ClientFriend client3 = new ClientFriend("Client 3");
-
+        
         //register observers to the subject
         sharedPlaylist.register(client1);
         sharedPlaylist.register(client2);

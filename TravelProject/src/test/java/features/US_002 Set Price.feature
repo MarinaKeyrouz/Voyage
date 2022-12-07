@@ -12,11 +12,11 @@ And the travel contains a Country
 And the Country contains <countryName> and <travelModes> 
 When the agent set the <price>
 Then the <price> should be updated. 
-  
+
 Examples: 
-| countryName    | travelModes | price |
-| Afghanistan    | AIRPLANE    | 1000  |
-| Lebanon        | CAR         | 700   |
+| countryName    | travelModes | price 		|
+| Afghanistan    | AIRPLANE    | 1000.5  	|
+| Lebanon        | CAR         | 700.0   	|
   
   
      
