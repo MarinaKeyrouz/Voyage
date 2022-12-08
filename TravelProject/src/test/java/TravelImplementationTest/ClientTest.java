@@ -21,17 +21,20 @@ public class ClientTest
      * Default constructor for test class TravelTest
      */
 	private static Client client;
+	private static Client client2;
 	
     @BeforeAll
     public static void setUp() {
         client = new Client();
+        client2 = new Client("Zahra");
     }
     
     @Test
     public void testGetterAndSetter() {
     	client.setName("Marina");
     	Assertions.assertEquals("Marina", client.getName());
-    	Assertions.assertEquals(3, client.getId());
+    	Assertions.assertEquals("Zahra", client2.getName());
+    	Assertions.assertEquals(4, client.getId());
     }
     
     @Test
@@ -58,6 +61,12 @@ public class ClientTest
     public void testGetterAndSetterCountryName() {
         client.setCountryDest("Lebanon");
         assertEquals(client.getCountryDest().getCountryName(), "Lebanon");
+    }
+    
+    @Test
+    public void testToString() {
+    	client.setName("Marina");
+        assertEquals(client.toString(), "Client [name=Marina, countryDest=Country [countryName=Lebanon, travelModes=[]]]");
     }
     
     @AfterAll

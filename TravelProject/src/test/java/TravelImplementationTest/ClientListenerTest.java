@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import TravelSong.ClientListener;
+import song.Playlist;
+import song.Song;
 
 class ClientListenerTest {
 	private static ClientListener adapter;
@@ -19,7 +21,16 @@ class ClientListenerTest {
 	            });
         adapter = new ClientListener("Alexy");
 	}
-
+	
+	@Test
+	public void testSetPlaylist() {
+		Song song = new Song("test", 1);
+		Playlist playlist = new Playlist();
+		playlist.addSong(song);
+		adapter.setPlaylist(playlist);
+		assertEquals(1, adapter.getListener().getPlaylist().getSongs().size());
+	}
+	
 	@Test
 	public void testEntertain() {
 		assertThrows(NullPointerException.class,
