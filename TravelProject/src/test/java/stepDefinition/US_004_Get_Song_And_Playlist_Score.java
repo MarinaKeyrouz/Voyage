@@ -5,16 +5,16 @@ import org.junit.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import song.Friend;
+import song.Listener;
 import song.Song;
 
 public class US_004_Get_Song_And_Playlist_Score {
-	private Friend friend;
+	private Listener friend;
 	private int score;
 	
 	@Given("^a new user (.*)$")
 	public void createFriend(String friendName) {
-		friend = new Friend(friendName);
+		friend = new Listener(friendName);
 		Assert.assertNotNull(this.friend);
 	}
 	

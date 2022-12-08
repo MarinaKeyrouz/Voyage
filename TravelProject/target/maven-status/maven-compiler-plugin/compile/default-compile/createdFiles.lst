@@ -2,7 +2,7 @@ TravelSong\ClientFriend.class
 TravelImplementation\Travel.class
 song\Song.class
 TravelSong\Main.class
-song\Friend.class
+song\Listener.class
 TravelImplementation\Client.class
 TravelImplementation\Country.class
 song\Playlist.class

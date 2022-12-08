@@ -2,27 +2,27 @@ package song;
 
 import java.util.Objects;
 
-public class Friend {
+public class Listener {
     private String name;
     private Playlist playlist;
 
-    public Friend() {
+    public Listener() {
     	this.playlist = new Playlist();
     }
     
-    public Friend(String name) {
+    public Listener(String name) {
     	this();
     	Objects.requireNonNull(name);
     	this.name = name;
     }
     
-    public Friend(String name, Song song) {
+    public Listener(String name, Song song) {
         this(name);
         Objects.requireNonNull(song);
         this.addSong(song);
     }
 
-    public Friend(String name, Playlist playlist) {
+    public Listener(String name, Playlist playlist) {
         this(name);
         Objects.requireNonNull(playlist);
     	this.playlist = playlist;
@@ -60,17 +60,24 @@ public class Friend {
     	return this.playlist.getScoreOfASong(songName);
     }
     
-    public Friend compareToFriend(Friend friend) {
-        Objects.requireNonNull(friend);
-    	if (this.getScore() > friend.getScore()) {
+    public Listener compareToListener(Listener listener) {
+        Objects.requireNonNull(listener);
+    	if (this.getScore() > listener.getScore()) {
             return this;
         }
-        return friend;
+        return listener;
     }
     
     public String playSong(String song) {
         Objects.requireNonNull(song);
     	return "This song: " + song + " is being played";
     }
+    
+    public void update() {
+		Playlist playlist = this.getPlaylist().getUpdate();
+		if (playlist != null) {
+			this.setPlaylist(playlist);
+		}
+	}
     
 }

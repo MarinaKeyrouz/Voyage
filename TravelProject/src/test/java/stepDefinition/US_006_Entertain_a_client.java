@@ -2,7 +2,7 @@ package stepDefinition;
 
 import org.junit.Assert;
 
-import TravelSong.ClientFriend;
+import TravelSong.ClientListener;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,13 +11,13 @@ import song.Song;
 
 public class US_006_Entertain_a_client {
 	
-	private ClientFriend client;
+	private ClientListener client;
 	private Playlist playlist;
 	private Song song;
 	
 	@Given("a new client : (.*)$")
 	public void createClient(String friendName1) {
-		client = new ClientFriend(friendName1);
+		client = new ClientListener(friendName1);
 		Assert.assertNotNull(this.client);
 	}
 	
@@ -36,14 +36,12 @@ public class US_006_Entertain_a_client {
 	
 	@When("^a user subscribe to a playlist$")
 	public void subscribeAndUpdate() {
-		this.playlist.register(client);
-		this.client.setPlaylist(playlist);
-		this.client.update();
+		
 	}
 	
 	@Then("^the song (.*) is in the client playlist$")
 	public void songInClientPlaylist(String songName) {
-		Assert.assertEquals(songName, this.client.getFriend().getPlaylist().getSongs().get(0).getName());
+		Assert.assertEquals(songName, this.client.getListener().getPlaylist().getSongs().get(0).getName());
 	}
 	
 	

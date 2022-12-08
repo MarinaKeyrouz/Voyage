@@ -1,5 +1,4 @@
 package song;
-import TravelSong.ClientFriend;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,12 +8,12 @@ import java.util.Objects;
 public class Playlist {
 	private ArrayList<Song> songs;
 	private int score;
-	private List<ClientFriend> observers;
+	private List<Listener> observers;
 	private boolean changed;
 	
 	public Playlist() {
-		this.observers = new ArrayList<>();
 		this.songs = new ArrayList<Song>();
+		this.observers = new ArrayList<Listener>();
 		this.score = 0;
 	}
 	
@@ -26,12 +25,15 @@ public class Playlist {
 		return this.songs;
 	}
 	
+	// when we add a new song the publisher gonna notify all Listeners
 	public void addSong(Song song) {
 		Objects.requireNonNull(song);
 		if (!this.songs.contains(song)) {
 			this.songs.add(song);
 			this.score += song.getScore();
-		}
+			this.changed = true;	
+			notifyObservers();
+		}		
 	}
 	
 	public void removeSong(Song song) {
@@ -52,40 +54,34 @@ public class Playlist {
 		}
 		return -1;
 	}
+	
 
-	public void register(ClientFriend obj) {
-		Objects.requireNonNull(obj);
-		if(!observers.contains(obj)) {
-			observers.add(obj);
+	public void register(Listener observer) {
+		Objects.requireNonNull(observer);
+		if(!observers.contains(observer)) {
+			observer.setPlaylist(this);
+			observers.add(observer);
 		}
 	}
 
-	public void unregister(ClientFriend obj) {
+	public void unregister(Listener obj) {
 		Objects.requireNonNull(obj);
 		observers.remove(obj);
 	}
+	
 	public void notifyObservers() {
-		List<ClientFriend> observersLocal = null;
+		List<Listener> observersLocal = null;
 		if (!changed)
 			return;
 		observersLocal = new ArrayList<>(this.observers);
-		this.changed=false;
-		for (ClientFriend obj : observersLocal) {
-			obj.update();
+		this.changed = false;
+		for (Listener listener : observersLocal) {
+			listener.update();
 		}
 	}
 
-	public Playlist getUpdate(ClientFriend obj) {
-		Objects.requireNonNull(obj);
+	public Playlist getUpdate() {
 		return this;
-	}
-
-	public void broadcastSong(String songName, int score) {
-		Objects.requireNonNull(songName);
-		this.changed = true;
-		Song newSong = new Song(songName, score);
-		this.addSong(newSong);
-		notifyObservers();
 	}
 
 }
