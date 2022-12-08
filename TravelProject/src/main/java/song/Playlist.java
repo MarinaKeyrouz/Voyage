@@ -41,7 +41,9 @@ public class Playlist {
 		if (this.songs.contains(song)) {
 			this.songs.remove(song);
 			this.score -= song.getScore();
-		}			
+			this.changed = true;
+			notifyObservers();
+		}
 	}
 	
 	public int getScoreOfASong(String songName) {

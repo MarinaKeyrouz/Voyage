@@ -14,3 +14,5 @@ Then the playlist of c2 is in the <playlist> of c1
 Examples:
 | clientName  | clientName2 | song1  | song2     | song3         | playlist	                            |
 | Nicolas 		| Marina 			| djadja | Scientist | Viva la vida	 | [djadja, Scientist, Viva la vida] 		|
+
+
