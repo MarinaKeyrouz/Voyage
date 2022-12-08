@@ -93,6 +93,14 @@ public class CountryTest
     	assertEquals("Lebanon", country.getCountryName());
     }
     
+    @Test
+    public void testTravelModesToString() {
+    	country.addTravelModes("car");
+    	country.addTravelModes("car");
+    	country.addTravelModes("airplane");
+    	assertEquals("CAR AIRPLANE ", country.travelModesToString());
+    }
+    
     @AfterAll
     protected static void tearDown() {
     	country = null;

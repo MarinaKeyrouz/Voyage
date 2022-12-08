@@ -86,5 +86,8 @@ class PlaylistTest {
     public void testRegister() {
     	ClientListener client1 = new ClientListener("test");
     	ClientListener client2 = new ClientListener("test2");
+    	client1.getListener().getPlaylist().register(client2.getListener());
+    	client1.getListener().addSong(djadja);
+    	assertEquals(1, client2.getListener().getPlaylist().getSongs().size());
     }
 }

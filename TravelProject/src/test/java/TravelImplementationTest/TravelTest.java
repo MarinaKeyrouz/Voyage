@@ -3,6 +3,7 @@ package TravelImplementationTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,8 +22,7 @@ import TravelImplementation.Travel;
  * @version (2 NOV 2022)
  */
 
-public class TravelTest
-{
+public class TravelTest {
     /**
      * Default constructor for test class TravelTest
      */
@@ -50,8 +50,29 @@ public class TravelTest
     }
     
     @Test
+    public void testGetPrice() {
+    	assertTrue(0 == travel2.getPrice());
+    }
+    
+    @Test
+    public void testSetPrice() {
+    	travel2.setPrice(10);
+    	assertTrue(10 == travel2.getPrice());
+    }
+    
+    @Test
     public void testGetReferenceNumber() {
     	assertEquals(Travel.getReferenceNumber(), 5);
+<<<<<<< HEAD
+=======
+    }
+    
+    @Test
+    public void testToString() {
+    	Country country = new Country("Lebanon");
+    	travel2.setCountry(country);
+    	assertEquals("Id: 5, Country: Lebanon", travel2.toString());
+>>>>>>> 553e4c94218808b821038d890a395736ca3f45ba
     }
     
     @AfterAll
