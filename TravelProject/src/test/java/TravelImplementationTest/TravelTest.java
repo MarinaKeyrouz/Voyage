@@ -63,8 +63,6 @@ public class TravelTest {
     @Test
     public void testGetReferenceNumber() {
     	assertEquals(Travel.getReferenceNumber(), 5);
-<<<<<<< HEAD
-=======
     }
     
     @Test
@@ -72,7 +70,6 @@ public class TravelTest {
     	Country country = new Country("Lebanon");
     	travel2.setCountry(country);
     	assertEquals("Id: 5, Country: Lebanon", travel2.toString());
->>>>>>> 553e4c94218808b821038d890a395736ca3f45ba
     }
     
     @AfterAll

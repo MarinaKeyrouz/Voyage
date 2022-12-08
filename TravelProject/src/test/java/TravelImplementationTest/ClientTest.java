@@ -66,11 +66,7 @@ public class ClientTest
     @Test
     public void testToString() {
     	client.setName("Marina");
-<<<<<<< HEAD
     	assertEquals(client.toString(), "Client [name=Marina, countryDest=Country [countryName=Lebanon, travelModes=[]]]");
-=======
-        assertEquals(client.toString(), "Client [name=Marina, countryDest=Country [countryName=Lebanon, travelModes=[]]]");
->>>>>>> 553e4c94218808b821038d890a395736ca3f45ba
     }
     
     @AfterAll
