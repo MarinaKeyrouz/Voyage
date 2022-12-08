@@ -6,25 +6,25 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import TravelSong.ClientFriend;
+import TravelSong.ClientListener;
 
-class ClientFriendTest {
-	private static ClientFriend adapter;
+class ClientListenerTest {
+	private static ClientListener adapter;
 	
 	@BeforeAll
 	public static void testClientFriend() {
 		assertThrows(NullPointerException.class,
 	            ()->{
-	            	new ClientFriend(null);
+	            	new ClientListener(null);
 	            });
-        adapter = new ClientFriend("Alexy");
+        adapter = new ClientListener("Alexy");
 	}
 
 	@Test
 	public void testEntertain() {
 		assertThrows(NullPointerException.class,
 	            ()->{
-	            	ClientFriendTest.adapter.entertain(null, null);
+	            	ClientListenerTest.adapter.entertain(null, null);
 	            });
 		assertEquals(adapter.entertain("Music", "Rock"), "This song: Rock is being played");
 	}

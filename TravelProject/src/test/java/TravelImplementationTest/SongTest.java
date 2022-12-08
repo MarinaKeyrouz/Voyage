@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import song.Song;
 
-public class TestSong {
+public class SongTest {
 	Song djadja;
-    public TestSong() {
+    public SongTest() {
     }
 
     /**

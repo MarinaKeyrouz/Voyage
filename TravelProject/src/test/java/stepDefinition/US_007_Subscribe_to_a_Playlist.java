@@ -2,7 +2,7 @@ package stepDefinition;
 
 import org.junit.Assert;
 
-import TravelSong.ClientFriend;
+import TravelSong.ClientListener;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,14 +11,14 @@ import song.Song;
 
 public class US_007_Subscribe_to_a_Playlist {
 	
-	private ClientFriend client1;
-	private ClientFriend client2;
+	private ClientListener client1;
+	private ClientListener client2;
 	private Playlist playlist;
 	
 	@Given("^a client c1 named (.*) with a playlist having the songs: (.*), (.*), (.*)$")
 	public void a_client_c1(String name, String song1, String song2, String song3) {
 	    // Write code here that turns the phrase above into concrete actions
-		client1 = new ClientFriend(name);
+		client1 = new ClientListener(name);
 		playlist = new Playlist();
 		Song s1 = new Song(song1, 1);
 		Song s2 = new Song(song2, 1);
@@ -34,7 +34,7 @@ public class US_007_Subscribe_to_a_Playlist {
 	@Given("^another client c2 named (.*)$")
 	public void another_client_c2(String name) {
 	    // Write code here that turns the phrase above into concrete actions
-		client2 = new ClientFriend(name);
+		client2 = new ClientListener(name);
 		Assert.assertNotNull(client2);
 	}
 

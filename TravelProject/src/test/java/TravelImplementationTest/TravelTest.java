@@ -27,10 +27,12 @@ public class TravelTest
      * Default constructor for test class TravelTest
      */
 	private static Travel travel;
+	private static Travel travel2;
 	
    @BeforeAll
    protected static void setUp() {
 	   travel = new Travel(new Country("France"));
+	   travel2 = new Travel();
    }
     
     @Test
@@ -43,8 +45,13 @@ public class TravelTest
     @Test
     public void testGetCountry() {
     	Country country = new Country("Lebanon");
-    	travel.setCountry(country);
-    	assertEquals(country.getCountryName(), country.getCountryName());
+    	travel2.setCountry(country);
+    	assertEquals(country.getCountryName(), travel2.getCountry().getCountryName());
+    }
+    
+    @Test
+    public void testGetReferenceNumber() {
+    	assertEquals(Travel.getReferenceNumber(), 2);
     }
     
     @AfterAll

@@ -5,15 +5,16 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import TravelSong.ClientListener;
 import song.Playlist;
 import song.Song;
 
-class TestPlaylist {
+class PlaylistTest {
 
 	Playlist playlist;
 	Song djadja;
 	
-    public TestPlaylist() {
+    public PlaylistTest() {
     }
 
     /**
@@ -37,7 +38,7 @@ class TestPlaylist {
     	playlist = null;
     	djadja = null;
     }
-
+    
     @Test
     public void testGetSongs() {
         assertEquals(0, playlist.getSongs().size());
@@ -61,7 +62,7 @@ class TestPlaylist {
     }
     
     @Test
-    public void testAddrSong() {
+    public void testAddSong() {
         assertThrows(NullPointerException.class,
                 ()->{
                     playlist.addSong(null);
@@ -79,5 +80,11 @@ class TestPlaylist {
         playlist.addSong(djadja);
         playlist.removeSong(djadja);
         assertEquals(0, playlist.getSongs().size());
+    }
+    
+    @Test
+    public void testRegister() {
+    	ClientListener client1 = new ClientListener("test");
+    	ClientListener client2 = new ClientListener("test2");
     }
 }

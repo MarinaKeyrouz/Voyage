@@ -27,16 +27,11 @@ public class ClientTest
         client = new Client();
     }
     
-    @AfterAll
-    public static void teardown() {
-        client = null;
-    }
-    
     @Test
     public void testGetterAndSetter() {
     	client.setName("Marina");
     	Assertions.assertEquals("Marina", client.getName());
-    	Assertions.assertEquals(1, client.getId());
+    	Assertions.assertEquals(3, client.getId());
     }
     
     @Test
@@ -63,6 +58,12 @@ public class ClientTest
     public void testGetterAndSetterCountryName() {
         client.setCountryDest("Lebanon");
         assertEquals(client.getCountryDest().getCountryName(), "Lebanon");
+    }
+    
+    @AfterAll
+    protected static void tearDown() {
+    	client = null;
+    	assertNull(client);
     }
    
 }

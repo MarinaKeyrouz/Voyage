@@ -6,21 +6,21 @@ import org.junit.Assert;
 
 import TravelImplementation.Client;
 import TravelImplementation.Country;
-import TravelSong.ClientFriend;
+import TravelSong.ClientListener;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class US_006_Entertain_a_client {
 	
-	private ClientFriend client;
+	private ClientListener client;
 	private Country country ;
 	private String songName;
 
 	@Given("^the creation of a client using the (.*)$")
 	public void the_creation_of_a_client(String clientName) {
 	    // Write code here that turns the phrase above into concrete actions
-		client = new ClientFriend("clientName");
+		client = new ClientListener("clientName");
 		Assert.assertNotNull(this.client);
 	}
 
@@ -41,7 +41,7 @@ public class US_006_Entertain_a_client {
 	public void the_client_can_listen_to_music(String song) {
 	    // Write code here that turns the phrase above into concrete actions
 		Assert.assertEquals(client.entertain("Music", this.songName),song);
+
 	}
-	
 	
 }

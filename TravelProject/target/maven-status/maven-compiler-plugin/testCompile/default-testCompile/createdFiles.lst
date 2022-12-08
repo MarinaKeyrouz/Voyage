@@ -1,9 +1,8 @@
 stepDefinition\US_000_CountryCreation.class
-TravelImplementationTest\TestSong.class
 stepDefinition\US_003_Add_Song_To_Playlist.class
+TravelImplementationTest\SongTest.class
 TravelImplementationTest\TravelTest.class
-TravelImplementationTest\TestPlaylist.class
-TravelImplementationTest\TestFriend.class
+TravelImplementationTest\ListenerTest.class
 stepDefinition\US_005_Compare_2_Friends_Score.class
 TravelImplementationTest\CountryTest.class
 stepDefinition\US_001_Choosing_a_Country.class
@@ -11,4 +10,5 @@ stepDefinition\US_004_Get_Song_And_Playlist_Score.class
 TravelImplementationTest\ClientTest.class
 stepDefinition\US_006_Entertain_a_client.class
 stepDefinition\US_002_Set_Price.class
+TravelImplementationTest\PlaylistTest.class
 TravelImplementationTest\ClientFriendTest.class
