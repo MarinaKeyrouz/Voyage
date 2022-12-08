@@ -15,7 +15,7 @@ public class US_005_Compare_2_Friends_Score {
 	private Song song2 = new Song("test", 3);
 	private Song song3 = new Song("test2", 5);
 	
-	@Given("two users : (.*), (.*)$")
+	@Given("two users (.*) and (.*)$")
 	public void createListeners(String friendName1, String friendName2) {
 		listener1 = new Listener(friendName1);
 		listener2 = new Listener(friendName2);
@@ -23,7 +23,7 @@ public class US_005_Compare_2_Friends_Score {
 		Assert.assertNotNull(this.listener2);
 	}
 	
-	@Given("^three songs : \\((.*), (\\d+)\\), \\((.*), (\\d+)\\), \\((.*), (\\d+)\\) the first song is added to the first friend and the rest are added to the second$")
+	@Given("^three songs with their respective scores: \\((.*), (\\d+)\\), \\((.*), (\\d+)\\), \\((.*), (\\d+)\\) the first song is added to the first friend and the rest are added to the second$")
 	public void createSongs(String songName1, int score1, String songName2, int score2, String songName3, int score3) {
 		song1 = new Song(songName1, score1);
 		song2 = new Song(songName2, score2);
@@ -40,7 +40,7 @@ public class US_005_Compare_2_Friends_Score {
 	
 	@When("^a user compares himself to another user$")
 	public void compare() {
-		this.winner = this.listener1.compareToListener(listener1);
+		this.winner = this.listener1.compareToListener(listener2);
 	}
 	
 	@Then("^the user (.*) with the highest score is returned$")

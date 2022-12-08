@@ -51,7 +51,7 @@ public class TravelTest
     
     @Test
     public void testGetReferenceNumber() {
-    	assertEquals(Travel.getReferenceNumber(), 2);
+    	assertEquals(Travel.getReferenceNumber(), 5);
     }
     
     @AfterAll
