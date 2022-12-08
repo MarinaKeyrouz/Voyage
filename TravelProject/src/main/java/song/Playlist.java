@@ -64,6 +64,7 @@ public class Playlist {
 		Objects.requireNonNull(obj);
 		observers.remove(obj);
 	}
+	
 	public void notifyObservers() {
 		List<ClientFriend> observersLocal = null;
 		if (!changed)
@@ -87,5 +88,8 @@ public class Playlist {
 		this.addSong(newSong);
 		notifyObservers();
 	}
-
+	
+	public String toString() {
+		return this.getSongs().toString();
+	}
 }

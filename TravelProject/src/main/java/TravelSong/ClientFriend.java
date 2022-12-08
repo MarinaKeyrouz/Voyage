@@ -19,6 +19,7 @@ public class ClientFriend extends Client {
 		return this.friend;
 	}
 
+	@Override
 	public String entertain(String type, String title) {
 		if (type.equals("Music")) {
 			return this.friend.playSong(title);
