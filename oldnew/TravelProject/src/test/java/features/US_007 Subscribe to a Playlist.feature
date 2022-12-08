@@ -6,10 +6,10 @@ As a client,
 I want to be able to subscribe to a playlist.
   
 Scenario Outline: Subscribe to a playlist
-Given a client c1 named <clientName> with a playlist having the songs: <song1>, <song2>, <song3> 
+Given a client c1 named <clientName> with a playlist having the songs: <song1>, <song2>, <song3>s 
 And another client c2 named <clientName2>
 When c1 subscribe to the playlist of c2
-Then the playlist of c2 is in the <playlist> of c1
+Then the playlist of c2 is in the <playlist2> of c1
     
 Examples:
 | clientName  | clientName2 | song1  | song2     | song3         | playlist	                            |

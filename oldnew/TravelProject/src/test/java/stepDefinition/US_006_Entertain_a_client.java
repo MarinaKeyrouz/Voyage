@@ -1,22 +1,26 @@
 package stepDefinition;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Assert;
 
-
-import TravelSong.ClientListener;
+import TravelImplementation.Client;
+import TravelImplementation.Country;
+import TravelSong.ClientFriend;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class US_006_Entertain_a_client {
 	
-	private ClientListener client;
+	private ClientFriend client;
+	private Country country ;
 	private String songName;
 
 	@Given("^the creation of a client using the (.*)$")
 	public void the_creation_of_a_client(String clientName) {
 	    // Write code here that turns the phrase above into concrete actions
-		client = new ClientListener("clientName");
+		client = new ClientFriend("clientName");
 		Assert.assertNotNull(this.client);
 	}
 
@@ -37,7 +41,7 @@ public class US_006_Entertain_a_client {
 	public void the_client_can_listen_to_music(String song) {
 	    // Write code here that turns the phrase above into concrete actions
 		Assert.assertEquals(client.entertain("Music", this.songName),song);
-
 	}
+	
 	
 }
